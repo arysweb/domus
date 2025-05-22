@@ -1,0 +1,618 @@
+/* CSS Variables */
+:root {
+    --main-font: 'Noto Serif', serif;
+    --dracula: #2d3436;
+    --blue: #0000ff;
+}
+
+/* Base styles */
+body {
+    font-family: var(--main-font);
+    font-size: 12px;
+    color: var(--dracula);
+}
+
+/* Container styles */
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Navigation row styles */
+.container .row {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    gap: 30px;
+}
+
+/* Column styles */
+.column {
+    flex: 1;
+}
+
+.left-column {
+    flex-basis: 50%;
+}
+
+.right-column {
+    flex-basis: 50%;
+}
+
+/* Logo styles */
+.logo {
+    padding: 10px 0;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Navigation styles */
+.main-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Burger menu styles */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.burger-icon {
+    width: 30px;
+    height: 20px;
+    position: relative;
+}
+
+.burger-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--dracula);
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.burger-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.burger-icon span:nth-child(2) {
+    top: 8px;
+}
+
+.burger-icon span:nth-child(3) {
+    top: 16px;
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dracula);
+    z-index: 2000;
+    overflow-y: auto;
+    transition: right 0.4s ease-in-out;
+}
+
+.mobile-nav-overlay.open {
+    right: 0;
+}
+
+.overlay-container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px 0;
+    color: white;
+}
+
+.overlay-row {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.overlay-row.header-row {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overlay-column {
+    flex: 1;
+}
+
+.overlay-column.left {
+    text-align: left;
+}
+
+.overlay-column.right {
+    text-align: right;
+}
+
+.overlay-column.full {
+    width: 100%;
+}
+
+/* Close button styles */
+.close-overlay {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.close-icon {
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.close-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+}
+
+.close-icon span:nth-child(1) {
+    top: 14px;
+    transform: rotate(45deg);
+}
+
+.close-icon span:nth-child(2) {
+    top: 14px;
+    transform: rotate(-45deg);
+}
+
+/* Mobile navigation styles */
+.mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav-item {
+    margin-bottom: 15px;
+}
+
+.mobile-nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: var(--blue);
+}
+
+.mobile-nav-link.btn-style {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.nav-item {
+    margin-left: 30px;
+}
+
+.nav-link {
+    color: var(--dracula);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--blue);
+}
+
+/* Button-styled link */
+.btn-style {
+    background-color: var(--blue);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-style:hover {
+    background-color: var(--dracula);
+    color: white;
+}
+
+/* Content row styles */
+.content-row {
+    align-items: center;
+}
+
+/* Text content styles */
+.text-content h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2.8rem;
+    color: var(--dracula);
+    line-height: 1.2;
+}
+
+.text-content p {
+    line-height: 1.5;
+    font-weight: 300;
+    color: var(--dracula);
+    font-size: 1.4rem;
+}
+
+/* Action links styles */
+.action-links {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    gap: 20px;
+}
+
+.text-link {
+    color: var(--dracula);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--blue);
+}
+
+/* Image container styles */
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.svg-image, .feature-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Feature section styles */
+.feature-section {
+    margin: 100px 0;
+    align-items: center;
+}
+
+/* For reversed layout, add class 'reversed' to feature-section */
+.feature-section.reversed {
+    flex-direction: row-reverse;
+}
+
+.feature-content {
+    padding: 0 20px;
+}
+
+/* Section label styles */
+.section-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--blue);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.feature-content h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2.8rem;
+    color: var(--dracula);
+    line-height: 1.2;
+}
+
+.feature-content p {
+    line-height: 1.5;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.feature-list {
+    list-style: none;
+    margin: 0 0 25px 0;
+    padding: 0;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.feature-list li i {
+    color: var(--blue);
+    margin-right: 10px;
+}
+
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--dracula);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.feature-link i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-link:hover {
+    color: var(--blue);
+}
+
+.feature-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive Styles */
+/* Desktop HD (1000px and above) */
+@media (min-width: 1000px) {
+    /* Styles for large desktops */
+}
+
+/* Base navigation styles */
+.desktop-nav-row {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+.mobile-nav-row {
+    display: block;
+}
+
+.mobile-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.mobile-logo {
+    max-width: 120px;
+}
+
+.mobile-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Burger menu styles */
+.burger-menu {
+    cursor: pointer;
+    display: block;
+}
+
+.burger-icon {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    margin-left: auto;
+}
+
+.burger-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--dracula);
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.burger-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.burger-icon span:nth-child(2) {
+    top: 8px;
+}
+
+.burger-icon span:nth-child(3) {
+    top: 16px;
+}
+
+/* Desktop navigation only */
+@media (min-width: 1000px) {
+    .desktop-nav-row {
+        display: flex !important;
+        visibility: visible !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    
+    .mobile-nav-row {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}
+
+/* Desktop HD styles will apply at 1000px and above */
+
+/* Mobile and Tablet (up to 999px) */
+@media (max-width: 999px) {
+    /* Ensure desktop navigation is completely hidden */
+    .desktop-nav-row,
+    .desktop-nav-row * {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Ensure mobile navigation is visible */
+    .mobile-nav-row {
+        display: block !important;
+    }
+    
+    /* Single column layout for all content up to 1000px */
+    .container .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* First section (content-row) - text first, then image */
+    .content-row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Feature sections - default order */
+    .feature-section {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Feature sections with reversed layout - default order */
+    .feature-section.reversed {
+        flex-direction: column;
+    }
+    
+    .column {
+        width: 100%;
+    }
+}
+
+/* Mobile and Tablet (up to 1000px) */
+@media (max-width: 999px) {
+    /* Styles for mobile */
+    body {
+        font-size: 10px;
+    }
+    
+    /* Adjust logo size in overlay */
+    .overlay-container .logo img {
+        max-width: 120px;
+    }
+    
+    /* Make sure the mobile navigation links are left-aligned */
+    .mobile-nav-link {
+        text-align: left;
+    }
+    
+    /* Adjust button style for mobile */
+    .mobile-nav-link.btn-style {
+        padding: 10px 20px;
+        font-size: 1.4rem;
+    }
+    
+    .container {
+        width: 85%;
+        padding: 0 10px;
+    }
+    
+    /* Hide specific image on small screens */
+    img[src="img/section_bg_1.svg"] {
+        display: none;
+    }
+    
+    /* Reduce size of all other images by 15% */
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .svg-image, .feature-image {
+        max-width: 85%;
+        height: auto;
+    }
+    
+    .text-content h2,
+    .feature-content h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .text-content p,
+    .feature-content p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .section-label {
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .feature-list {
+        margin-left: 20px;
+    }
+    
+    .feature-list li {
+        font-size: 0.9rem;
+    }
+    
+    .feature-list li i {
+        font-size: 0.8rem;
+    }
+    
+    .action-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .action-links a {
+        font-size: 0.7rem;
+    }
+    
+    .action-links .nav-link.btn-style {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+    
+    .action-links .text-link {
+        font-size: 0.7rem;
+    }
+    
+    .feature-section {
+        margin: 100px 0;
+    }
+    
+    /* Add spacing to content row as well */
+    .content-row {
+        margin-bottom: 100px;
+    }
+}
