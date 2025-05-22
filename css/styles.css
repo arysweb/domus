@@ -120,9 +120,9 @@ body {
 }
 
 .overlay-container {
-    width: 85%;
+    width: 75%;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 40px 0;
     color: white;
 }
 
@@ -191,6 +191,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
 .mobile-nav-item {
@@ -204,6 +205,7 @@ body {
     font-weight: 700;
     display: block;
     transition: color 0.3s ease;
+    text-align: center;
 }
 
 .mobile-nav-link:hover {
