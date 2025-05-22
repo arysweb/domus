@@ -12,6 +12,16 @@ body {
     color: var(--dracula);
 }
 
+/* Default Navigation Display */
+/* Mobile first approach: hide desktop, show mobile by default */
+.desktop-nav-row {
+    display: none;
+}
+
+.mobile-nav-row {
+    display: flex;
+}
+
 /* Container styles */
 .container {
     width: 90%;
@@ -51,9 +61,17 @@ body {
     height: auto;
 }
 
+/* Desktop Navigation Row */
+.desktop-nav-row {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 /* Navigation styles */
 .main-nav {
-    display: flex;
+    display: none;
     justify-content: flex-end;
 }
 
@@ -66,7 +84,7 @@ body {
 
 /* Burger menu styles */
 .burger-menu {
-    display: none;
+    display: flex;
     cursor: pointer;
     z-index: 1000;
 }
@@ -100,6 +118,32 @@ body {
 
 .burger-icon span:nth-child(3) {
     top: 16px;
+}
+
+/* Mobile Navigation Row */
+.mobile-nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.mobile-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.mobile-logo {
+    padding: 10px 0;
+}
+
+.mobile-logo img {
+    max-width: 150px;
+    height: auto;
 }
 
 /* Mobile Navigation Overlay */
@@ -187,25 +231,32 @@ body {
 }
 
 /* Mobile navigation styles */
-.mobile-nav-list {
+.mobile-nav-overlay .mobile-nav-list {
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center;
 }
 
-.mobile-nav-item {
+.mobile-nav-overlay .mobile-nav-item {
     margin-bottom: 15px;
+    text-align: center;
 }
 
-.mobile-nav-link {
+.mobile-nav-overlay .mobile-nav-link {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    display: block;
+    display: inline-block;
     transition: color 0.3s ease;
     text-align: center;
+    padding: 5px 0;
+}
+
+.mobile-nav-overlay .mobile-nav {
+    text-align: center;
+    margin: 40px 0;
 }
 
 .mobile-nav-link:hover {
@@ -215,6 +266,8 @@ body {
 .mobile-nav-link.btn-style {
     display: inline-block;
     margin-top: 20px;
+    padding: 8px 18px;
+    font-size: 1.3rem;
 }
 
 .nav-item {
@@ -382,184 +435,14 @@ body {
 }
 
 /* Responsive Styles */
-/* Desktop HD (1000px and above) */
-@media (min-width: 1000px) {
-    /* Styles for large desktops */
-}
 
-/* Base navigation styles */
-.desktop-nav-row {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    overflow: hidden !important;
-}
-
-.mobile-nav-row {
-    display: block;
-}
-
-.mobile-nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-}
-
-.mobile-logo {
-    max-width: 120px;
-}
-
-.mobile-logo img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Burger menu styles */
-.burger-menu {
-    cursor: pointer;
-    display: block;
-}
-
-.burger-icon {
-    width: 30px;
-    height: 24px;
-    position: relative;
-    margin-left: auto;
-}
-
-.burger-icon span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background: var(--dracula);
-    border-radius: 3px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
-}
-
-.burger-icon span:nth-child(1) {
-    top: 0px;
-}
-
-.burger-icon span:nth-child(2) {
-    top: 8px;
-}
-
-.burger-icon span:nth-child(3) {
-    top: 16px;
-}
-
-/* Desktop navigation only */
-@media (min-width: 1000px) {
-    .desktop-nav-row {
-        display: flex !important;
-        visibility: visible !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-    
-    .mobile-nav-row {
-        display: none !important;
-        visibility: hidden !important;
-    }
-}
-
-/* Desktop HD styles will apply at 1000px and above */
-
-/* Mobile and Tablet (up to 999px) */
-@media (max-width: 999px) {
-    /* Ensure desktop navigation is completely hidden */
-    .desktop-nav-row,
-    .desktop-nav-row * {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        overflow: hidden !important;
-    }
-    
-    /* Ensure mobile navigation is visible */
-    .mobile-nav-row {
-        display: block !important;
-    }
-    
-    /* Single column layout for all content up to 1000px */
-    .container .row {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    /* First section (content-row) - text first, then image */
-    .content-row {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Feature sections - default order */
-    .feature-section {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Feature sections with reversed layout - default order */
-    .feature-section.reversed {
-        flex-direction: column;
-    }
-    
-    .column {
-        width: 100%;
-    }
-}
-
-/* Mobile and Tablet (up to 1000px) */
-@media (max-width: 999px) {
-    /* Styles for mobile */
+/* Mobile (below 400px) */
+@media (max-width: 399px) {
     body {
         font-size: 10px;
     }
     
-    /* Adjust logo size in overlay */
-    .overlay-container .logo img {
-        max-width: 120px;
-    }
-    
-    /* Make sure the mobile navigation links are left-aligned */
-    .mobile-nav-link {
-        text-align: left;
-    }
-    
-    /* Adjust button style for mobile */
-    .mobile-nav-link.btn-style {
-        padding: 10px 20px;
-        font-size: 1.4rem;
-    }
-    
-    .container {
-        width: 85%;
-        padding: 0 10px;
-    }
-    
-    /* Hide specific image on small screens */
-    img[src="img/section_bg_1.svg"] {
-        display: none;
-    }
-    
-    /* Reduce size of all other images by 15% */
-    .image-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .svg-image, .feature-image {
-        max-width: 85%;
-        height: auto;
-    }
-    
+    /* Text styles */
     .text-content h2,
     .feature-content h2 {
         font-size: 1.8rem;
@@ -573,22 +456,50 @@ body {
     }
     
     .section-label {
-        text-align: center;
-        margin-top: 50px;
-    }
-    
-    .feature-list {
-        margin-left: 20px;
-    }
-    
-    .feature-list li {
         font-size: 0.9rem;
+        text-align: center;
     }
     
-    .feature-list li i {
-        font-size: 0.8rem;
+    /* Layout */
+    .container .row {
+        flex-direction: column;
+        gap: 20px;
     }
     
+    .column {
+        width: 100%;
+    }
+    
+    /* Content sections */
+    .content-row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .feature-section {
+        display: flex;
+        flex-direction: column;
+        margin: 50px 0;
+    }
+    
+    .feature-section.reversed {
+        flex-direction: column;
+    }
+    
+    /* Navigation */
+    .desktop-nav-row {
+        display: none;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .mobile-nav-row {
+        display: flex;
+    }
+    
+    /* Action links */
     .action-links {
         display: flex;
         flex-direction: row;
@@ -597,24 +508,440 @@ body {
     }
     
     .action-links a {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
     
     .action-links .nav-link.btn-style {
-        padding: 5px 10px;
-        font-size: 0.7rem;
+        padding: 5px 15px;
+        font-size: 0.8rem;
     }
     
     .action-links .text-link {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Feature list */
+    .feature-list {
+        padding-left: 10px;
+    }
+    
+    .feature-list li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Phablet (400px - 549px) */
+@media (min-width: 400px) and (max-width: 549px) {
+    body {
+        font-size: 11px;
+    }
+    
+    /* Text styles */
+    .text-content h2,
+    .feature-content h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .text-content p,
+    .feature-content p {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    .section-label {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    /* Layout */
+    .container .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .column {
+        width: 100%;
+    }
+    
+    /* Content sections */
+    .content-row {
+        display: flex;
+        flex-direction: column;
     }
     
     .feature-section {
+        display: flex;
+        flex-direction: column;
+        margin: 60px 0;
+    }
+    
+    .feature-section.reversed {
+        flex-direction: column;
+    }
+    
+    /* Navigation */
+    .desktop-nav-row {
+        display: none;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .mobile-nav-row {
+        display: flex;
+    }
+    
+    /* Action links */
+    .action-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .action-links a {
+        font-size: 0.9rem;
+    }
+    
+    .action-links .nav-link.btn-style {
+        padding: 6px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .action-links .text-link {
+        font-size: 0.9rem;
+    }
+    
+    /* Feature list */
+    .feature-list {
+        padding-left: 15px;
+    }
+    
+    .feature-list li {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet (550px - 749px) */
+@media (min-width: 550px) and (max-width: 749px) {
+    body {
+        font-size: 12px;
+    }
+    
+    /* Text styles */
+    .text-content h2,
+    .feature-content h2 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    
+    .text-content p,
+    .feature-content p {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .section-label {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    /* Layout */
+    .container .row {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .column {
+        width: 100%;
+    }
+    
+    /* Content sections */
+    .content-row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .feature-section {
+        display: flex;
+        flex-direction: column;
+        margin: 70px 0;
+    }
+    
+    .feature-section.reversed {
+        flex-direction: column;
+    }
+    
+    /* Navigation */
+    .desktop-nav-row {
+        display: none;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .mobile-nav-row {
+        display: flex;
+    }
+    
+    /* Action links */
+    .action-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .action-links a {
+        font-size: 1rem;
+    }
+    
+    .action-links .nav-link.btn-style {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+    
+    .action-links .text-link {
+        font-size: 1rem;
+    }
+    
+    /* Feature list */
+    .feature-list {
+        padding-left: 20px;
+        max-width: 80%;
+        margin: 0 auto 25px auto;
+    }
+    
+    .feature-list li {
+        font-size: 1.1rem;
+    }
+}
+
+/* Desktop (750px - 999px) */
+@media (min-width: 750px) and (max-width: 999px) {
+    body {
+        font-size: 13px;
+    }
+    
+    /* Text styles */
+    .text-content h2,
+    .feature-content h2 {
+        font-size: 2.4rem;
+    }
+    
+    .text-content p,
+    .feature-content p {
+        font-size: 1.3rem;
+    }
+    
+    .section-label {
+        font-size: 1.2rem;
+    }
+    
+    /* Layout */
+    .container .row {
+        flex-direction: row;
+    }
+    
+    .column {
+        flex: 1;
+    }
+    
+    /* Content sections */
+    .content-row {
+        flex-direction: row;
+    }
+    
+    .feature-section {
+        flex-direction: row;
+        margin: 80px 0;
+    }
+    
+    .feature-section.reversed {
+        flex-direction: row-reverse;
+    }
+    
+    /* Navigation */
+    .desktop-nav-row {
+        display: none;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .mobile-nav-row {
+        display: flex;
+    }
+    
+    /* Action links */
+    .action-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    
+    .action-links a {
+        font-size: 1.1rem;
+    }
+    
+    .action-links .nav-link.btn-style {
+        padding: 10px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .action-links .text-link {
+        font-size: 1.1rem;
+    }
+    
+    /* Feature list */
+    .feature-list li {
+        font-size: 1.1rem;
+    }
+}
+
+/* Desktop HD (1000px - 1199px) */
+@media (min-width: 1000px) and (max-width: 1199px) {
+    body {
+        font-size: 14px;
+    }
+    
+    /* Navigation */
+    .desktop-nav-row {
+        display: flex;
+    }
+    
+    .mobile-nav-row {
+        display: none;
+    }
+    
+    .main-nav {
+        display: flex;
+    }
+    
+    /* Layout */
+    .container .row {
+        flex-direction: row;
+    }
+    
+    .column {
+        flex: 1;
+    }
+    
+    /* Content sections */
+    .content-row {
+        flex-direction: row;
+    }
+    
+    .feature-section {
+        flex-direction: row;
+        margin: 90px 0;
+    }
+    
+    .feature-section.reversed {
+        flex-direction: row-reverse;
+    }
+    
+    /* Text styles */
+    .text-content h2,
+    .feature-content h2 {
+        font-size: 2.6rem;
+        text-align: left;
+    }
+    
+    .text-content p,
+    .feature-content p {
+        font-size: 1.3rem;
+        text-align: left;
+    }
+    
+    .section-label {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+    
+    /* Action links */
+    .action-links {
+        justify-content: flex-start;
+    }
+    
+    /* Feature list */
+    .feature-list li {
+        font-size: 1.2rem;
+    }
+}
+
+/* Desktop HD XL (1200px and above) */
+@media (min-width: 1200px) {
+    body {
+        font-size: 16px;
+    }
+    
+    /* Navigation */
+    .desktop-nav-row {
+        display: flex;
+    }
+    
+    .mobile-nav-row {
+        display: none;
+    }
+    
+    .main-nav {
+        display: flex;
+    }
+    
+    /* Layout */
+    .container .row {
+        flex-direction: row;
+    }
+    
+    .column {
+        flex: 1;
+    }
+    
+    /* Content sections */
+    .content-row {
+        flex-direction: row;
+    }
+    
+    .feature-section {
+        flex-direction: row;
         margin: 100px 0;
     }
     
-    /* Add spacing to content row as well */
-    .content-row {
-        margin-bottom: 100px;
+    .feature-section.reversed {
+        flex-direction: row-reverse;
+    }
+    
+    /* Text styles */
+    .text-content h2,
+    .feature-content h2 {
+        font-size: 2.8rem;
+        text-align: left;
+    }
+    
+    .text-content p,
+    .feature-content p {
+        font-size: 1.4rem;
+        text-align: left;
+    }
+    
+    .section-label {
+        font-size: 1.3rem;
+        text-align: left;
+    }
+    
+    /* Action links */
+    .action-links {
+        justify-content: flex-start;
+    }
+    
+    /* Feature list */
+    .feature-list li {
+        font-size: 1.3rem;
     }
 }
