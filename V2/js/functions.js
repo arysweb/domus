@@ -29,6 +29,35 @@ document.addEventListener('DOMContentLoaded', function() {
             backdrop.classList.remove('active');
             document.body.style.overflow = ''; // Re-enable scrolling
         });
+        
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        if (backToTopButton) {
+            // Initially hide the button
+            backToTopButton.style.opacity = '0';
+            backToTopButton.style.visibility = 'hidden';
+            
+            // Show/hide the button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) { // Show button after scrolling down 300px
+                    backToTopButton.style.opacity = '1';
+                    backToTopButton.style.visibility = 'visible';
+                } else {
+                    backToTopButton.style.opacity = '0';
+                    backToTopButton.style.visibility = 'hidden';
+                }
+            });
+            
+            // Smooth scroll to top when button is clicked
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     }
     
     // Close mobile menu when window is resized to desktop size
