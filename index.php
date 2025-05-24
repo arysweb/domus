@@ -11,33 +11,8 @@ $rootPath = '';
     <script src="js/functions.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Navigation Row -->
-        <div class="row">
-            <div class="col left">
-                <!-- Logo -->
-                <img src="img/logo.svg" alt="DomusCarta Logo" class="logo">
-            </div>
-            <div class="col right">
-                <!-- Burger Icon (mobile only) -->
-                <div class="burger">
-                    <i class="bi bi-list"></i>
-                </div>
-                <!-- Desktop Navigation -->
-                <nav class="desktop-nav">
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Red Social</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Marketplace</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Eventos</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">#Colector</a></li>
-                        <li class="nav-item"><a href="auth/login.php" class="btn-empieza">Empieza Ya!</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- End Navigation Row -->
-    </div>
+    <!-- Navigation Row -->
+    <?php include 'inc/navigation.php'; ?>
     
     <!-- Hero Section -->
     <section class="hero-section">
@@ -210,82 +185,10 @@ $rootPath = '';
     </section>
     
     <!-- CTA Signup Section -->
-    <section class="signup-cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="section-title">¡Únete a la comunidad!</h2>
-                <p class="section-text">Conecta con coleccionistas, gestiona tu colección y participa en eventos exclusivos.</p>
-                
-                <div class="action-links">
-                    <a href="auth/signup.php" class="hero-btn">Crear Cuenta</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php include 'inc/cta.php'; ?>
     
     <!-- Footer Section -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="footer-row">
-                <!-- Left Column: Logo, Description, Social -->
-                <div class="footer-left">
-                    <div class="footer-logo">
-                        <img src="img/logo.svg" alt="DomusCarta Logo" class="logo">
-                    </div>
-                    <div class="footer-description">
-                        <p>DomusCarta es la comunidad líder de coleccionistas de cartas Pokémon en España. Conectamos a coleccionistas, organizamos eventos y facilitamos la compra-venta de cartas.</p>
-                    </div>
-                    <div class="footer-social">
-                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Right Column: Navigation Links -->
-                <div class="footer-right">
-                    <!-- Column 1: Marketplace -->
-                    <div class="footer-nav-col">
-                        <h4 class="footer-heading">Marketplace</h4>
-                        <ul class="footer-links">
-                            <li><a href="#">Comprar</a></li>
-                            <li><a href="#">Vender</a></li>
-                            <li><a href="#">Intercambiar</a></li>
-                            <li><a href="#">Cartas Destacadas</a></li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Column 2: Comunidad -->
-                    <div class="footer-nav-col">
-                        <h4 class="footer-heading">Comunidad</h4>
-                        <ul class="footer-links">
-                            <li><a href="#">Eventos</a></li>
-                            <li><a href="#">Torneos</a></li>
-                            <li><a href="#">Foros</a></li>
-                            <li><a href="#">Blog</a></li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Column 3: Cuenta -->
-                    <div class="footer-nav-col">
-                        <h4 class="footer-heading">Cuenta</h4>
-                        <ul class="footer-links">
-                            <li><a href="auth/login.php">Iniciar Sesión</a></li>
-                            <li><a href="auth/signup.php">Registrarse</a></li>
-                            <li><a href="auth/login.php">Mi Colección</a></li>
-                            <li><a href="#">Ayuda</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Copyright Bar -->
-            <div class="copyright-bar">
-                <p>&copy; 2025 DomusCarta. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'inc/footer.php'; ?>
     
     <!-- Backdrop for blur effect -->
     <div class="backdrop" id="backdrop"></div>
@@ -296,31 +199,6 @@ $rootPath = '';
     </a>
     
     <!-- Mobile Menu Overlay -->
-    <div class="mobile-overlay" id="mobileOverlay">
-        <div class="container">
-            <div class="row">
-                <div class="col left">
-                    <!-- Empty column -->
-                </div>
-                <div class="col right">
-                    <!-- Close Icon -->
-                    <div class="close-icon">
-                        <i class="bi bi-x-lg"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu Content -->
-            <div class="mobile-menu-content">
-                <ul class="mobile-nav-list">
-                    <li class="mobile-nav-item"><a href="auth/login.php" class="mobile-nav-link">Inicio</a></li>
-                    <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Red Social</a></li>
-                    <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Marketplace</a></li>
-                    <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">Eventos</a></li>
-                    <li class="mobile-nav-item"><a href="#" class="mobile-nav-link">#Colector</a></li>
-                    <li class="mobile-nav-item"><a href="auth/signup.php" class="mobile-btn-empieza">Empieza Ya!</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <?php include 'inc/mobile-menu-overlay.php'; ?>
 </body>
 </html>
