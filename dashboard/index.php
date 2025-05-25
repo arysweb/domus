@@ -28,6 +28,8 @@ $active_page = 'dashboard';
     <title>Dashboard | DomusCarta</title>
     <?php include '../inc/head.php'; ?>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/notifications.css">
+    <script src="js/notifications.js" defer></script>
 </head>
 <body>
     

@@ -9,17 +9,17 @@
     <!-- Collection Info Card -->
     <div class="collection-info">
         <?php 
-        // This would be your actual logic to check if user has cards
-        $hasCards = true; // Set to true to see the normal view
+        // Include user data file
+        require_once 'user_data.php';
         
-        if ($hasCards) { 
+        if ($user_data['has_cards']) { 
         // *** CARD VIEW WHEN USER HAS CARDS *** 
         ?>
         <!-- Card with background image containing all elements -->
         <div class="collection-bg">
             <!-- Title Row -->
             <div class="collection-title">
-                <h3>Mi Colección</h3>
+                <h3>Colección de <?php echo htmlspecialchars($user_data['username']); ?></h3>
             </div>
             
             <!-- Stats Row -->
@@ -73,10 +73,8 @@
     
     <!-- Social Activity Card -->
     <?php 
-    // This would be your actual logic to check if user has social connections
-    $hasSocialConnections = false; // Set to true to see the normal view
-    
-    if ($hasSocialConnections) { 
+    // Check if user has social connections based on data from database
+    if ($user_data['has_social_connections']) { 
     // *** SOCIAL CARD VIEW WHEN USER HAS CONNECTIONS *** 
     ?>
     <div class="social-activity-card">
