@@ -18,236 +18,191 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 $user = mysqli_fetch_assoc($result);
 mysqli_stmt_close($stmt);
+
+// Set active page
+$active_page = 'dashboard';
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <title>Dashboard | DomusCarta</title>
     <?php include '../inc/head.php'; ?>
-    <link rel="stylesheet" href="../css/global.css">
-    <style>
-        .dashboard-container {
-            padding: 40px 0;
-        }
-        .dashboard-header {
-            margin-bottom: 30px;
-        }
-        .dashboard-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--dracula);
-        }
-        .dashboard-header p {
-            font-size: 1.1rem;
-            color: rgba(45, 52, 54, 0.7);
-            font-weight: 300;
-        }
-        .dashboard-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-        .dashboard-card h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--dracula);
-        }
-        .dashboard-card p {
-            font-size: 1rem;
-            color: rgba(45, 52, 54, 0.7);
-            margin-bottom: 15px;
-        }
-        .dashboard-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .stat-item {
-            background-color: rgba(0, 0, 255, 0.05);
-            border-radius: 8px;
-            padding: 15px;
-            flex: 1;
-            min-width: 150px;
-        }
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--blue);
-            margin-bottom: 5px;
-        }
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--dracula);
-        }
-        .action-btn {
-            display: inline-block;
-            background-color: var(--blue);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        .action-btn:hover {
-            background-color: var(--dracula);
-        }
-        .logout-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--dracula);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        .logout-link:hover {
-            color: var(--blue);
-            text-decoration: underline;
-        }
-        @media (min-width: 750px) {
-            .dashboard-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col left">
-                    <a href="../index.php" class="logo-link">
-                        <img src="../img/logo.svg" alt="DomusCarta Logo" class="logo">
-                    </a>
-                </div>
-                <div class="col right">
-                    <nav class="main-nav">
-                        <ul class="nav-list">
-                            <li class="nav-item"><a href="../index.php" class="nav-link">Inicio</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Red Social</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Marketplace</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Eventos</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">#Colector</a></li>
-                            <li class="nav-item"><a href="logout.php" class="btn-empieza">Cerrar Sesión</a></li>
-                        </ul>
-                    </nav>
-                    <div class="burger-menu" id="burgerMenu">
-                        <i class="bi bi-list"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Dashboard Content -->
-    <main>
-        <div class="container dashboard-container">
-            <div class="dashboard-header">
-                <h1>Bienvenido, <?php echo htmlspecialchars($user['username']); ?></h1>
-                <p>Gestiona tu colección, participa en la comunidad y explora el marketplace.</p>
-            </div>
-            
-            <div class="dashboard-grid">
-                <!-- Collection Card -->
-                <div class="dashboard-card">
-                    <h2>Mi Colección</h2>
-                    <p>Gestiona tus cartas Pokémon, añade nuevas a tu colección y mantén un registro de su valor.</p>
-                    
-                    <div class="dashboard-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Cartas en colección</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">0€</div>
-                            <div class="stat-label">Valor estimado</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="#" class="action-btn">Ver Colección</a>
-                    </div>
-                </div>
-                
-                <!-- Community Card -->
-                <div class="dashboard-card">
-                    <h2>Comunidad</h2>
-                    <p>Conecta con otros coleccionistas, participa en foros y comparte tu pasión por las cartas Pokémon.</p>
-                    
-                    <div class="dashboard-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Mensajes enviados</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Conexiones</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="#" class="action-btn">Explorar Comunidad</a>
-                    </div>
-                </div>
-                
-                <!-- Marketplace Card -->
-                <div class="dashboard-card">
-                    <h2>Marketplace</h2>
-                    <p>Compra y vende cartas Pokémon en el marketplace exclusivo para coleccionistas españoles.</p>
-                    
-                    <div class="dashboard-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Compras realizadas</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Ventas completadas</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="#" class="action-btn">Ir al Marketplace</a>
-                    </div>
-                </div>
-                
-                <!-- Events Card -->
-                <div class="dashboard-card">
-                    <h2>Eventos</h2>
-                    <p>Descubre torneos y eventos de Pokémon en toda España, y conecta con la comunidad en persona.</p>
-                    
-                    <div class="dashboard-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Eventos próximos</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Eventos asistidos</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 20px;">
-                        <a href="#" class="action-btn">Ver Calendario</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center;">
-                <a href="logout.php" class="logout-link">Cerrar Sesión</a>
-            </div>
-        </div>
-    </main>
+    <!-- Mobile Toggle Button (visible only on mobile) -->
+    <button class="mobile-toggle" id="mobileToggle">
+        <i class="bi bi-list"></i>
+    </button>
     
-    <!-- Scripts -->
-    <script src="../js/functions.js"></script>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <img src="../img/logo-white.svg" alt="DomusCarta" class="sidebar-logo">
+                <span class="sidebar-title">DomusCarta</span>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Sidebar Navigation -->
+            <div class="sidebar-nav">
+                <!-- Main Navigation Section -->
+                <div class="nav-section">
+                    <div class="nav-section-header">Principal</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="index.php" class="nav-link <?php echo ($active_page == 'dashboard') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-grid"></i></span>
+                                <span class="nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="profile.php" class="nav-link <?php echo ($active_page == 'profile') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-person"></i></span>
+                                <span class="nav-text">Mi Perfil</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="messages.php" class="nav-link <?php echo ($active_page == 'messages') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-chat"></i></span>
+                                <span class="nav-text">Mensajes</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Collection Section -->
+                <div class="nav-section">
+                    <div class="nav-section-header">Mi Colección</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="collection.php" class="nav-link <?php echo ($active_page == 'collection') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-collection"></i></span>
+                                <span class="nav-text">Ver Colección</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="add-card.php" class="nav-link <?php echo ($active_page == 'add-card') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-plus-circle"></i></span>
+                                <span class="nav-text">Añadir Carta</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="wishlist.php" class="nav-link <?php echo ($active_page == 'wishlist') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-bookmark-heart"></i></span>
+                                <span class="nav-text">Lista de Deseos</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Marketplace Section -->
+                <div class="nav-section">
+                    <div class="nav-section-header">Marketplace</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="marketplace.php" class="nav-link <?php echo ($active_page == 'marketplace') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-shop"></i></span>
+                                <span class="nav-text">Explorar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="my-listings.php" class="nav-link <?php echo ($active_page == 'my-listings') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-tag"></i></span>
+                                <span class="nav-text">Mis Anuncios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="orders.php" class="nav-link <?php echo ($active_page == 'orders') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-bag"></i></span>
+                                <span class="nav-text">Pedidos</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Community Section -->
+                <div class="nav-section">
+                    <div class="nav-section-header">Comunidad</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="events.php" class="nav-link <?php echo ($active_page == 'events') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-calendar-event"></i></span>
+                                <span class="nav-text">Eventos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="forum.php" class="nav-link <?php echo ($active_page == 'forum') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-chat-square-text"></i></span>
+                                <span class="nav-text">Foro</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Settings Section -->
+                <div class="nav-section">
+                    <div class="nav-section-header">Configuración</div>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <a href="settings.php" class="nav-link <?php echo ($active_page == 'settings') ? 'active' : ''; ?>">
+                                <span class="nav-icon"><i class="bi bi-gear"></i></span>
+                                <span class="nav-text">Ajustes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link">
+                                <span class="nav-icon"><i class="bi bi-box-arrow-right"></i></span>
+                                <span class="nav-text">Cerrar Sesión</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Bienvenido, <?php echo htmlspecialchars($user['username']); ?></h1>
+            <p>Este es el panel de control de DomusCarta.</p>
+            
+            <!-- Content will go here -->
+        </div>
+    </div>
+    
+    <!-- JavaScript for sidebar toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar toggle functionality
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            const mobileToggle = document.getElementById('mobileToggle');
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('expanded');
+                
+                // Change icon based on sidebar state
+                const icon = this.querySelector('i');
+                if (sidebar.classList.contains('expanded')) {
+                    icon.classList.remove('bi-chevron-right');
+                    icon.classList.add('bi-chevron-left');
+                } else {
+                    icon.classList.remove('bi-chevron-left');
+                    icon.classList.add('bi-chevron-right');
+                }
+            });
+            
+            // Mobile toggle functionality
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('visible');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
