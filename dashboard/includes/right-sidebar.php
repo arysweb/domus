@@ -72,6 +72,13 @@
     </div>
     
     <!-- Social Activity Card -->
+    <?php 
+    // This would be your actual logic to check if user has social connections
+    $hasSocialConnections = false; // Set to true to see the normal view
+    
+    if ($hasSocialConnections) { 
+    // *** SOCIAL CARD VIEW WHEN USER HAS CONNECTIONS *** 
+    ?>
     <div class="social-activity-card">
         <!-- Card Header: 2 columns (Title and See All link) -->
         <div class="activity-card-header">
@@ -130,4 +137,23 @@
             </div>
         </div>
     </div>
+    <?php 
+    } else { 
+    // *** SOCIAL CARD VIEW WHEN USER HAS NO CONNECTIONS *** 
+    ?>
+    <!-- Empty social state -->
+    <div class="social-activity-card">
+        <div class="empty-social">
+            <!-- Title and Description -->
+            <div class="empty-social-content">
+                <h3>Comienza a seguir a alguien</h3>
+                <p>Sigue a otros coleccionistas o vendedores para ver su actividad en tu página y descubrir nuevas cartas.</p>
+                <a href="social.php" class="connect-btn">
+                    <i class="bi bi-people"></i> Explorar comunidad
+                </a>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+    
 </div>

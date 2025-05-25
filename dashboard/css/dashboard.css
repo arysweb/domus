@@ -480,26 +480,37 @@ body {
     padding: 30px 20px;
 }
 
-.empty-collection-content {
+/* Empty social state */
+.empty-social {
+    background-color: var(--light-gray);
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+.empty-collection-content, .empty-social-content {
     text-align: left;
     max-width: 300px;
     padding-left: 20px;
 }
 
-.empty-collection-content h3 {
+.empty-collection-content h3, .empty-social-content h3 {
     color: var(--dracula);
     font-size: 1.3rem;
     margin-bottom: 10px;
 }
 
-.empty-collection-content p {
+.empty-collection-content p, .empty-social-content p {
     color: var(--dracula);
     font-size: 0.95rem;
     margin-bottom: 20px;
     font-weight: 300;
 }
 
-.add-cards-btn {
+.add-cards-btn, .connect-btn {
     display: inline-flex;
     align-items: center;
     background-color: var(--blue);
@@ -511,18 +522,17 @@ body {
     transition: background-color 0.2s ease;
 }
 
-.add-cards-btn:hover {
+.add-cards-btn:hover, .connect-btn:hover {
     background-color: #0000cc;
 }
 
-.add-cards-btn i {
+.add-cards-btn i, .connect-btn i {
     margin-right: 8px;
 }
 
 /* Social Activity Card */
 .social-activity-card {
     background-color: white;
-    border-radius: 20px;
     overflow: hidden;
     margin-bottom: 20px;
 }
