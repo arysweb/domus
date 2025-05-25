@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Avatar Placeholder</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle fill="#E0E0E0" cx="20" cy="20" r="20"></circle>
+        <path d="M20,22 C23.3137085,22 26,19.3137085 26,16 C26,12.6862915 23.3137085,10 20,10 C16.6862915,10 14,12.6862915 14,16 C14,19.3137085 16.6862915,22 20,22 Z M20,24 C14.4771525,24 10,28.4771525 10,34 L30,34 C30,28.4771525 25.5228475,24 20,24 Z" fill="#AAAAAA"></path>
+    </g>
+</svg>

@@ -37,11 +37,28 @@ $active_page = 'dashboard';
         
         <!-- Main Content -->
         <div class="main-content">
-            <h1>Bienvenido, <?php echo htmlspecialchars($user['username']); ?></h1>
-            <p>Este es el panel de control de DomusCarta.</p>
+            <?php include 'includes/topbar.php'; ?>
             
-            <!-- Content will go here -->
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Main Content Area -->
+                <div class="main-content-area">
+                    <!-- Dashboard content will go here -->
+                </div>
+                
+                <!-- Include Right Sidebar -->
+                <?php include 'includes/right-sidebar.php'; ?>
+            </div>
         </div>
+    </div>
+    
+    <!-- Dropdown Menu (outside of card structure) -->
+    <div class="dropdown-menu" id="dropdownMenu">
+        <div class="dropdown-item" data-value="sv-paradox-rift">Escarlata y Púrpura—Grieta Paradoja (42/182)</div>
+        <div class="dropdown-item" data-value="sv-obsidian-flames">Escarlata y Púrpura—Llamas Obsidiana (35/194)</div>
+        <div class="dropdown-item" data-value="sv-151">Escarlata y Púrpura—151 (28/165)</div>
+        <div class="dropdown-item" data-value="sv-paldea">Escarlata y Púrpura—Paldea Evolucionado (31/193)</div>
+        <div class="dropdown-item" data-value="sv-base">Escarlata y Púrpura—Set Base (39/198)</div>
     </div>
     
     <!-- Include dashboard JavaScript -->

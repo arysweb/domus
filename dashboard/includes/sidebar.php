@@ -32,12 +32,6 @@
                         <span class="nav-text">Mi Perfil</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="messages.php" class="sidebar-nav-link <?php echo ($active_page == 'messages') ? 'active' : ''; ?>">
-                        <span class="nav-icon"><i class="bi bi-chat"></i></span>
-                        <span class="nav-text">Mensajes</span>
-                    </a>
-                </li>
             </ul>
         </div>
         
@@ -99,12 +93,6 @@
                     <a href="events.php" class="sidebar-nav-link <?php echo ($active_page == 'events') ? 'active' : ''; ?>">
                         <span class="nav-icon"><i class="bi bi-calendar-event"></i></span>
                         <span class="nav-text">Eventos</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="forum.php" class="sidebar-nav-link <?php echo ($active_page == 'forum') ? 'active' : ''; ?>">
-                        <span class="nav-icon"><i class="bi bi-chat-square-text"></i></span>
-                        <span class="nav-text">Foro</span>
                     </a>
                 </li>
             </ul>
