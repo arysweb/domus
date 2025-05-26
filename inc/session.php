@@ -163,7 +163,7 @@ function logout() {
  */
 function require_login() {
     if (!is_logged_in()) {
-        header('Location: /auth/login.php');
+        header('Location: ../auth/login.php');
         exit;
     }
 }
@@ -173,7 +173,8 @@ function require_login() {
  */
 function redirect_if_logged_in() {
     if (is_logged_in()) {
-        header('Location: /dashboard/');
+        // Go up one directory level from /auth/ to root, then to /dashboard/
+        header('Location: ../dashboard/');
         exit;
     }
 }
