@@ -42,7 +42,6 @@ body {
     height: 100vh;
     display: flex;
     background-color: var(--white);
-    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -406,7 +405,7 @@ body {
 
 /* Dashboard Content */
 .dashboard-content {
-    padding: 40px 20px;
+    padding: 30px 20px;
     overflow-y: auto;
     display: flex;
 }

@@ -95,6 +95,12 @@
                         <span class="nav-text">Eventos</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="find-users.php" class="sidebar-nav-link <?php echo ($active_page == 'find-users') ? 'active' : ''; ?>">
+                        <span class="nav-icon"><i class="bi bi-people"></i></span>
+                        <span class="nav-text">Buscar Usuarios</span>
+                    </a>
+                </li>
             </ul>
         </div>
         
