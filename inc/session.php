@@ -174,7 +174,7 @@ function require_login() {
 function redirect_if_logged_in() {
     if (is_logged_in()) {
         // Go up one directory level from /auth/ to root, then to /dashboard/
-        header('Location: ../dashboard/');
+        header('Location: ../dashboard/find-users.php');
         exit;
     }
 }

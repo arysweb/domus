@@ -12,7 +12,7 @@ if (!is_logged_in() && isset($_COOKIE['domus_remember'])) {
     $user = validate_remember_token();
     if ($user) {
         // User was logged in via remember me token, redirect to dashboard
-        header('Location: ../dashboard/');
+        header('Location: ../dashboard/find-users.php');
         exit;
     }
 }
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // If login successful, redirect to dashboard
         if ($result['status'] === 'success') {
-            header('Location: ../dashboard/');
+            header('Location: ../dashboard/find-users.php');
             exit;
         }
     }
