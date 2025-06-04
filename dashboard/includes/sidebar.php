@@ -8,8 +8,12 @@
 <div class="sidebar" id="sidebar">
     <!-- Sidebar Header -->
     <div class="sidebar-header">
-        <img src="../img/logo-icon-black.svg" alt="DomusCarta" class="sidebar-logo sidebar-logo-icon">
-        <img src="../img/logo.svg" alt="DomusCarta" class="sidebar-logo sidebar-logo-full">
+        <a href="index.php">
+            <img src="../img/logo-icon-black.svg" alt="DomusCarta" class="sidebar-logo sidebar-logo-icon">
+        </a>
+        <a href="index.php">
+            <img src="../img/logo.svg" alt="DomusCarta" class="sidebar-logo sidebar-logo-full">
+        </a>
         <button class="sidebar-toggle" id="sidebarToggle">
             <i class="bi bi-chevron-right"></i>
         </button>

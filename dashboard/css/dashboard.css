@@ -53,7 +53,7 @@ body {
     background-color: var(--light-gray);
     color: var(--dracula);
     transition: width var(--sidebar-transition);
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible to allow toggle button to extend outside */
     position: relative;
     border-radius: 5px;
     display: flex;
@@ -70,22 +70,30 @@ body {
 
 .sidebar-toggle {
     position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    background: none;
+    right: -15px;
+    transform: translateY(0);
+    background-color: var(--light-gray);
     border: none;
     color: var(--dracula);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     cursor: pointer;
     z-index: 10;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s ease;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
-.sidebar:hover .sidebar-toggle {
+/* Toggle is now always visible */
+/* .sidebar:hover .sidebar-toggle {
     opacity: 1;
-}
+} */
 
 .sidebar-header {
     padding: 15px;
@@ -583,7 +591,6 @@ body {
 /* Events Card Header */
 .events-card-header {
     padding: 15px 20px;
-    border-bottom: 1px solid rgba(45, 52, 54, 0.1);
 }
 
 /* Events Toggle Links */
@@ -727,7 +734,6 @@ body {
 /* Events Footer */
 .events-footer {
     padding: 15px 20px;
-    border-top: 1px solid rgba(45, 52, 54, 0.1);
 }
 
 .events-footer a {

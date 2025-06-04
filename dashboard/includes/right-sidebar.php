@@ -237,7 +237,7 @@
             <!-- Description -->
             <div class="empty-social-content">
                 <p>Sigue a otros coleccionistas para ver su actividad.</p>
-                <a href="social.php" class="connect-btn">
+                <a href="find-users.php" class="connect-btn">
                     <i class="bi bi-people"></i> Explorar comunidad
                 </a>
             </div>
