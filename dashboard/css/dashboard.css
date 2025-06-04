@@ -1066,6 +1066,199 @@ body {
  * Mobile: 400px
  */
 
+/* Right Sidebar Desktop/Mobile Containers */
+.mobile-right-sidebar {
+    display: none; /* Hidden by default on desktop */
+}
+
+.desktop-right-sidebar {
+    display: block; /* Shown by default on desktop */
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    display: none; /* Hidden by default, shown in media query */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--white);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0;
+}
+
+.mobile-nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--dracula);
+    text-decoration: none;
+    font-size: 0.7rem;
+    padding: 0;
+    width: 25%;
+    position: relative;
+    height: 100%;
+}
+
+.mobile-nav-item i {
+    font-size: 1.6rem;
+}
+
+.mobile-nav-item.active {
+    color: var(--blue);
+}
+
+/* Center Plus Button */
+.mobile-nav-plus {
+    margin-top: -25px;
+    z-index: 10;
+}
+
+.plus-button-circle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--dracula);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-plus i {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.mobile-nav-plus span {
+    margin-top: 6px;
+    font-size: 0.65rem;
+}
+
+/* Mobile Menu Toggle Button - Removed as it's redundant with the bottom nav menu button */
+
+@media (max-width: 1200px) {
+    /* Main container adjustments */
+    .dashboard-container {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Sidebar adjustments */
+    .sidebar {
+        position: fixed;
+        z-index: 1002; /* Much higher than overlay */
+        height: 100vh;
+        margin: 0;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        width: 80%;
+        max-width: 300px;
+        overflow-y: auto; /* Enable scrolling for sidebar content */
+        padding-bottom: 80px; /* Add padding to prevent content from being hidden under mobile nav */
+    }
+    
+    .sidebar.expanded {
+        transform: translateX(0);
+    }
+    
+    /* Hide sidebar toggle button */
+    .sidebar-toggle {
+        display: none;
+    }
+    
+    /* Main content adjustments */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding-bottom: 70px; /* Space for bottom nav */
+    }
+    
+    .main-content-area {
+        width: 100%;
+        box-sizing: border-box;
+        margin-right: 0;
+    }
+    
+    /* Right sidebar adjustments */
+    .mobile-right-sidebar {
+        display: block;
+        width: 100%;
+        margin: 0 0 15px 0;
+        padding: 10px;
+    }
+    
+    .desktop-right-sidebar {
+        display: none;
+    }
+    
+    /* Show mobile navigation */
+    .mobile-bottom-nav {
+        display: block;
+    }
+    
+    /* Overlay when sidebar is open */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 1000; /* Just below the sidebar */
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+    }
+    
+    /* Adjust card layouts */
+    .collection-card,
+    .events-card,
+    .social-card,
+    .collection-info,
+    .social-activity-card {
+        margin-bottom: 15px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+    }
+    
+    /* Make sure all card content is also full width */
+    .dashboard-sidebar {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .mobile-right-sidebar {
+        padding: 0;
+    }
+    
+    /* Remove max-width from empty states */
+    .empty-collection-content, .empty-social-content {
+        max-width: none;
+        width: 100%;
+    }
+}
+
 @media (max-width: 750px) {
     .dashboard-container {
         width: 100%;

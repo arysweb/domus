@@ -38,22 +38,34 @@ $active_page = 'dashboard';
     <div class="dashboard-container">
         <?php include 'includes/sidebar.php'; ?>
         
+        <!-- Sidebar Overlay removed -->
+        
         <!-- Main Content -->
         <div class="main-content">
             <?php include 'includes/topbar.php'; ?>
             
             <!-- Dashboard Content -->
             <div class="dashboard-content">
+                <!-- Mobile Right Sidebar (hidden on desktop) -->
+                <div class="mobile-right-sidebar">
+                    <?php include 'includes/right-sidebar.php'; ?>
+                </div>
+                
                 <!-- Main Content Area -->
                 <div class="main-content-area">
                     <!-- Dashboard content will go here -->
                 </div>
                 
-                <!-- Include Right Sidebar -->
-                <?php include 'includes/right-sidebar.php'; ?>
+                <!-- Desktop Right Sidebar (hidden on mobile) -->
+                <div class="desktop-right-sidebar">
+                    <?php include 'includes/right-sidebar.php'; ?>
+                </div>
             </div>
         </div>
     </div>
+    
+    <!-- Include Mobile Navigation -->
+    <?php include 'includes/mobile-nav.php'; ?>
     
     <!-- Dropdown Menu (outside of card structure) -->
     <div class="dropdown-menu" id="dropdownMenu">
@@ -66,5 +78,6 @@ $active_page = 'dashboard';
     
     <!-- Include dashboard JavaScript -->
     <script src="js/dashboard.js"></script>
+    <script src="js/mobile-nav.js"></script>
 </body>
 </html>

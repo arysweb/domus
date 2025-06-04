@@ -193,9 +193,7 @@ body {
     max-width: 400px;
 }
 
-.mobile-nav-item {
-    margin-bottom: 20px;
-}
+
 
 .mobile-nav-link {
     color: var(--white);
