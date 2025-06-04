@@ -4,6 +4,12 @@
  * Retrieves user information, collection stats, and social connections
  */
 
+// TOGGLE STATES - Change these values to true/false to switch between card states
+$HAS_CARDS = false;         // Set to true to show collection with cards, false for empty collection
+$HAS_SOCIAL = false;        // Set to true to show social activity, false for empty social state
+$HAS_MY_EVENTS = false;     // Set to true to show user's events (attending/interested)
+$HAS_PUBLIC_EVENTS = true;  // Set to true to show public events (always available)
+
 // Include database connection
 require_once '../inc/db_connect.php';
 
@@ -17,8 +23,10 @@ $user_data = array(
     'profile_picture_url' => null,
     'bio' => null,
     'location' => null,
-    'has_cards' => false,
-    'has_social_connections' => false,
+    'has_cards' => $HAS_CARDS,           // Use the toggle variable
+    'has_social_connections' => $HAS_SOCIAL,  // Use the toggle variable
+    'has_my_events' => $HAS_MY_EVENTS,     // Use the toggle variable for user's events
+    'has_public_events' => $HAS_PUBLIC_EVENTS,  // Use the toggle variable for public events
     'following_count' => 0,
     'followers_count' => 0,
     'social_activities' => array()

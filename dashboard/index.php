@@ -30,6 +30,7 @@ $active_page = 'dashboard';
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/notifications.css">
     <script src="js/notifications.js" defer></script>
+    <script src="js/events-toggle.js" defer></script>
 </head>
 <body>
     

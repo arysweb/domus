@@ -59,10 +59,9 @@
         ?>
         <!-- Empty collection state -->
         <div class="collection-bg empty-collection">
-            <!-- Title and Description -->
+            <!-- Description -->
             <div class="empty-collection-content">
-                <h3>Sin cartas aún</h3>
-                <p>Añade tus primeras cartas para comenzar tu colección de Pokémon.</p>
+                <p>Añade tus primeras cartas para comenzar tu colección.</p>
                 <a href="add-cards.php" class="add-cards-btn">
                     <i class="bi bi-plus-circle"></i> Añadir cartas
                 </a>
@@ -70,7 +69,100 @@
         </div>
         <?php } ?>
     </div>
-    
+
+    <!-- Events Card -->
+    <div class="events-card">
+        <!-- Card Header with Toggle Links -->
+        <div class="events-card-header">
+            <div class="events-toggle-links">
+                <a href="#" class="event-toggle-link <?php echo ($user_data['has_my_events']) ? 'active' : ''; ?>" data-target="my-events">Mis Eventos</a>
+                <a href="#" class="event-toggle-link <?php echo (!$user_data['has_my_events']) ? 'active' : ''; ?>" data-target="public-events">Eventos Públicos</a>
+            </div>
+        </div>
+        
+        <!-- My Events Section -->
+        <div class="events-section my-events <?php echo ($user_data['has_my_events']) ? 'active' : ''; ?>">
+            <?php if ($user_data['has_my_events']) { // User has their own events ?>
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="event-day">15</span>
+                        <span class="event-month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Torneo Local Pokémon TCG</div>
+                        <div class="event-location"><i class="bi bi-geo-alt"></i> Centro Comercial Gran Vía</div>
+                    </div>
+                    <div class="event-status attending">Asistiré</div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="event-day">22</span>
+                        <span class="event-month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Intercambio de Cartas</div>
+                        <div class="event-location"><i class="bi bi-geo-alt"></i> Parque del Retiro</div>
+                    </div>
+                    <div class="event-status interested">Interesado</div>
+                </div>
+                
+                <!-- See All Events Link -->
+                <div class="events-footer">
+                    <a href="events.php">Ver todos mis eventos <i class="bi bi-arrow-right"></i></a>
+                </div>
+            <?php } else { // User has no events yet ?>
+                <div class="empty-events-content">
+                    <p>Aún no tienes eventos. Participa en eventos para conectar con otros coleccionistas.</p>
+                    <a href="events.php" class="find-events-btn">
+                        <i class="bi bi-calendar-event"></i> Explorar eventos
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+        
+        <!-- Public Events Section -->
+        <div class="events-section public-events <?php echo (!$user_data['has_my_events']) ? 'active' : ''; ?>">
+            <?php if ($user_data['has_public_events']) { // There are public events ?>
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="event-day">18</span>
+                        <span class="event-month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Campeonato Regional Pokémon</div>
+                        <div class="event-location"><i class="bi bi-geo-alt"></i> IFEMA Madrid</div>
+                    </div>
+                    <div class="event-action"><a href="#" class="event-join-btn">Unirse</a></div>
+                </div>
+                
+                <div class="event-item">
+                    <div class="event-date">
+                        <span class="event-day">25</span>
+                        <span class="event-month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-title">Lanzamiento Expansión Pokémon</div>
+                        <div class="event-location"><i class="bi bi-geo-alt"></i> Tienda Game</div>
+                    </div>
+                    <div class="event-action"><a href="#" class="event-join-btn">Unirse</a></div>
+                </div>
+                
+                <!-- See All Events Link -->
+                <div class="events-footer">
+                    <a href="events.php?type=public">Ver todos los eventos <i class="bi bi-arrow-right"></i></a>
+                </div>
+            <?php } else { // No public events available ?>
+                <div class="empty-events-content">
+                    <p>No hay eventos públicos disponibles en este momento.</p>
+                    <a href="events.php" class="find-events-btn">
+                        <i class="bi bi-calendar-plus"></i> Crear evento
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
     <!-- Social Activity Card -->
     <?php 
     // Check if user has social connections based on data from database
@@ -142,10 +234,9 @@
     <!-- Empty social state -->
     <div class="social-activity-card">
         <div class="empty-social">
-            <!-- Title and Description -->
+            <!-- Description -->
             <div class="empty-social-content">
-                <h3>Comienza a seguir a alguien</h3>
-                <p>Sigue a otros coleccionistas o vendedores para ver su actividad en tu página y descubrir nuevas cartas.</p>
+                <p>Sigue a otros coleccionistas para ver su actividad.</p>
                 <a href="social.php" class="connect-btn">
                     <i class="bi bi-people"></i> Explorar comunidad
                 </a>

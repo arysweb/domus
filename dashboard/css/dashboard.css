@@ -439,9 +439,9 @@ body {
     overflow: hidden;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('../img/colection_info_bg.svg');
+    background-image: url('../img/colection_info_bg_disabled_2.svg');
     background-size: cover;
-    background-position: center;
+    background-position: top right;
 }
 
 /* Collection Footer */
@@ -470,45 +470,84 @@ body {
 
 /* Empty collection state */
 .empty-collection {
-    background-image: url('../img/colection_info_bg_disabled.svg');
+    background-image: url('../img/colection_info_bg_disabled_2.svg');
     background-size: cover;
-    background-position: center;
-    min-height: 200px;
+    background-position: top right;
     justify-content: center;
     align-items: center;
-    padding: 30px 20px;
+    padding: 0;
+}
+
+/* Empty events state */
+.empty-events {
+    background-image: url('../img/colection_info_bg_disabled_2.svg');
+    background-size: cover;
+    background-position: top right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.empty-events-content {
+    text-align: left;
+    max-width: 320px;
+    padding: 30px 25px;
+}
+
+.empty-events-content p {
+    color: var(--dracula);
+    font-size: 1rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.find-events-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--blue);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+.find-events-btn:hover {
+    background-color: var(--blue);
+}
+
+.find-events-btn i {
+    margin-right: 8px;
 }
 
 /* Empty social state */
 .empty-social {
-    background-image: url('../img/colection_info_bg_disabled.svg');
+    background-image: url('../img/colection_info_bg_disabled_2.svg');
     background-size: cover;
-    background-position: center;
-    min-height: 200px;
+    background-position: top right;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 20px;
     border-radius: 10px;
 }
 
 .empty-collection-content, .empty-social-content {
     text-align: left;
-    max-width: 300px;
-    padding-left: 20px;
+    max-width: 320px;
+    padding: 30px 25px;
 }
 
-.empty-collection-content h3, .empty-social-content h3 {
-    color: var(--dracula);
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
+/* Removed h3 styles as titles are no longer used */
 
 .empty-collection-content p, .empty-social-content p {
     color: var(--dracula);
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-    font-weight: 300;
+    font-size: 1rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    line-height: 1.5;
 }
 
 .add-cards-btn, .connect-btn {
@@ -531,11 +570,191 @@ body {
     margin-right: 8px;
 }
 
-/* Social Activity Card */
-.social-activity-card {
-    background-color: white;
+/* Events Card */
+.events-card {
+    background-image: url('../img/colection_info_bg_disabled_2.svg');
+    background-size: cover;
+    background-position: top right;
     overflow: hidden;
     margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* Events Card Header */
+.events-card-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+}
+
+/* Events Toggle Links */
+.events-toggle-links {
+    display: flex;
+    gap: 20px;
+}
+
+.event-toggle-link {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--dracula);
+    text-decoration: none;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.event-toggle-link:hover {
+    color: var(--blue);
+}
+
+.event-toggle-link.active {
+    color: var(--blue);
+}
+
+.event-toggle-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--blue);
+}
+
+/* Events Sections */
+.events-section {
+    display: none;
+    padding: 10px 0;
+}
+
+.events-section.active {
+    display: block;
+}
+
+/* Event Item */
+.event-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 12px;
+    padding: 12px 20px;
+    align-items: center;
+}
+
+/* Event Date */
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+}
+
+.event-day {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dracula);
+    line-height: 1;
+}
+
+.event-month {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--dracula);
+    text-transform: uppercase;
+}
+
+/* Event Details */
+.event-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--dracula);
+    margin-bottom: 4px;
+}
+
+.event-location {
+    font-size: 0.7rem;
+    color: var(--dracula);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Event Status */
+.event-status {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.event-status.attending {
+    background-color: rgba(0, 200, 83, 0.1);
+    color: #00C853;
+}
+
+.event-status.interested {
+    background-color: rgba(0, 0, 255, 0.1);
+    color: var(--blue);
+}
+
+/* Event Action */
+.event-action {
+    text-align: center;
+}
+
+.event-join-btn {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: var(--blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.event-join-btn:hover {
+    opacity: 0.9;
+}
+
+/* Events Footer */
+.events-footer {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(45, 52, 54, 0.1);
+}
+
+.events-footer a {
+    color: var(--dracula);
+    text-decoration: none;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.events-footer a:hover {
+    color: var(--blue);
+}
+
+.events-footer a i {
+    margin-left: 5px;
+}
+
+/* Social Activity Card */
+.social-activity-card {
+    background-image: url('../img/colection_info_bg_disabled_2.svg');
+    background-size: cover;
+    background-position: top right;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 /* Card Header */
@@ -608,7 +827,7 @@ body {
 
 .activity-text {
     font-size: 0.7rem;
-    color: var(--dark-gray);
+    color: var(--dracula);
     font-weight: 400;
 }
 
@@ -620,7 +839,7 @@ body {
 /* Activity Time */
 .activity-time {
     font-size: 0.7rem;
-    color: #999;
+    color: var(--dracula);
     align-self: center;
 }
 
