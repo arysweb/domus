@@ -50,15 +50,14 @@ $active_page = 'find-users';
             <?php include 'includes/topbar.php'; ?>
             <div class="dashboard-content">
                 <div class="main-content-area">
-                    <!-- Users Search and Filter Section -->
+                    <!-- Community Section -->
                     <section class="users-search-section">
                         <div class="section-header">
-                            <h2>Buscar Usuarios</h2>
+                            <div class="section-title-desc">
+                                <h2>Comunidad DomusCarta</h2>
+                                <p class="section-description">Conecta con otros coleccionistas, vendedores y compradores de cartas Pokémon. Sigue a usuarios para ver sus actividades, envía mensajes y descubre nuevas colecciones.</p>
+                            </div>
                             <div class="search-filter-container">
-                                <div class="search-box">
-                                    <i class="bi bi-search"></i>
-                                    <input type="text" id="userSearchInput" placeholder="Buscar por nombre de usuario...">
-                                </div>
                                 <div class="filter-options">
                                     <select id="userFilterSelect">
                                         <option value="all">Todos</option>
@@ -85,22 +84,21 @@ $active_page = 'find-users';
                                 </div>
                                 <div class="user-card-info">
                                     <h3 class="user-card-name"><?php echo htmlspecialchars($user_item['username']); ?></h3>
-                                    <div class="user-card-location">
-                                        <i class="bi bi-geo-alt-fill"></i>
-                                        <span>Barcelona, España</span>
+                                    <p class="user-card-bio">Coleccionista de cartas Pokémon desde 2010. Especializado en cartas raras y ediciones limitadas.</p>
+                                    <div class="user-card-stats">
+                                        <div class="stat-item">
+                                            <span class="stat-number">124</span>
+                                            <span class="stat-label">Siguiendo</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-number">45</span>
+                                            <span class="stat-label">Seguidores</span>
+                                        </div>
                                     </div>
-                                    <div class="user-card-badges">
-                                        <span class="profile-badge">
-                                            <i class="bi bi-award-fill"></i> Oro
-                                        </span>
-                                        <span class="colecter-badge">
-                                            <i class="bi bi-award-fill"></i> Leyenda
-                                        </span>
+                                    <div class="user-card-actions">
+                                        <button class="btn btn-follow"><i class="bi bi-person-plus"></i> Seguir</button>
+                                        <button class="btn btn-profile"><i class="bi bi-person"></i> Ver Perfil</button>
                                     </div>
-                                </div>
-                                <div class="user-card-actions">
-                                    <button class="btn btn-follow"><i class="bi bi-person-plus"></i> Seguir</button>
-                                    <button class="btn btn-message"><i class="bi bi-chat-dots"></i> Mensaje</button>
                                 </div>
                             </div>
                         </div>
@@ -117,18 +115,11 @@ $active_page = 'find-users';
                             <div class="user-list-info">
                                 <div class="user-list-name"><?php echo htmlspecialchars($user_item['username']); ?></div>
                                 <div class="user-list-location">Barcelona, España</div>
-                                <div class="user-list-badges">
-                                    <span class="profile-badge">
-                                        <i class="bi bi-award-fill"></i> Oro
-                                    </span>
-                                    <span class="colecter-badge">
-                                        <i class="bi bi-award-fill"></i> Leyenda
-                                    </span>
-                                </div>
+                                <div class="user-list-bio">Coleccionista de cartas Pokémon desde 2010. Especializado en cartas raras y ediciones limitadas.</div>
                             </div>
                             <div class="user-list-actions">
                                 <button class="btn-follow-small"><i class="bi bi-person-plus"></i> Seguir</button>
-                                <button class="btn-message-small"><i class="bi bi-chat-dots"></i> Mensaje</button>
+                                <button class="btn-profile-small"><i class="bi bi-person"></i> Ver Perfil</button>
                             </div>
                         </div>
                         <?php endforeach; ?>

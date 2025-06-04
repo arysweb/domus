@@ -257,30 +257,42 @@ body {
 
 /* Search and Filter Section */
 .users-search-section {
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 2px 12px 0 rgba(44, 62, 80, 0.2);
     padding: 20px;
     margin-bottom: 20px;
 }
 
 .section-header {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.section-title-desc {
+    flex: 1;
+    max-width: 70%;
 }
 
 .section-header h2 {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--dracula);
+    margin-bottom: 10px;
+}
+
+.section-description {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .search-filter-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
     align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    min-width: 200px;
 }
 
 .search-box {
@@ -345,8 +357,8 @@ body {
 /* Users Grid View */
 .users-grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     margin-bottom: 30px;
 }
 
@@ -357,6 +369,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 /* Cover image removed */
@@ -369,25 +382,24 @@ body {
 }
 
 .user-card-content {
-    padding: 0 10px 10px;
+    padding: 15px;
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+    height: 100%;
 }
 
 .user-card-avatar {
     width: 100px;
     height: 100px;
+    min-width: 100px;
     border-radius: 50%;
     background: var(--light-gray);
     overflow: hidden;
-    margin-top: 10px;
     border: 4px solid var(--white);
     box-shadow: 0 2px 8px 0 rgba(44,62,80,0.08);
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .user-avatar {
@@ -397,11 +409,15 @@ body {
 }
 
 .user-card-info {
-    margin-top: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 100%;
 }
 
 .user-card-name {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--dracula);
     margin-bottom: 5px;
@@ -417,19 +433,47 @@ body {
     margin-bottom: 10px;
 }
 
-.user-card-badges {
+.user-card-bio {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-card-stats {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+    gap: 15px;
     margin-bottom: 15px;
-    justify-content: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stat-number {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--dracula);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
 }
 
 .user-card-actions {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    justify-content: center;
+    margin-top: auto;
 }
 
 .user-card-actions .btn {
@@ -442,8 +486,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 5px;
     white-space: nowrap;
+    transition: all 0.2s ease;
 }
 
 .btn-follow {
@@ -451,9 +496,17 @@ body {
     color: var(--white);
 }
 
-.btn-message {
+.btn-profile {
     background-color: var(--light-gray);
     color: var(--dracula);
+}
+
+.btn-follow:hover {
+    background-color: #0000cc;
+}
+
+.btn-profile:hover {
+    background-color: #e0e0e0;
 }
 
 /* Users List View */
@@ -465,13 +518,11 @@ body {
 }
 
 .user-list-item {
-    background: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 2px 12px 0 rgba(44, 62, 80, 0.2);
     padding: 15px;
     display: flex;
     align-items: center;
     gap: 15px;
+    border-bottom: 1px solid var(--light-gray);
 }
 
 .user-list-avatar {
@@ -506,10 +557,17 @@ body {
     margin-bottom: 5px;
 }
 
-.user-list-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+.user-list-bio {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .user-list-actions {
@@ -517,7 +575,7 @@ body {
     gap: 10px;
 }
 
-.btn-follow-small, .btn-message-small {
+.btn-follow-small, .btn-profile-small {
     padding: 6px 12px;
     font-size: 0.8rem;
     border-radius: 8px;
@@ -533,9 +591,18 @@ body {
     color: var(--white);
 }
 
-.btn-message-small {
+.btn-profile-small {
     background-color: var(--light-gray);
     color: var(--dracula);
+    transition: all 0.2s ease;
+}
+
+.btn-follow-small:hover {
+    background-color: #0000cc;
+}
+
+.btn-profile-small:hover {
+    background-color: #e0e0e0;
 }
 
 /* Loading Indicator for Infinite Scroll */
